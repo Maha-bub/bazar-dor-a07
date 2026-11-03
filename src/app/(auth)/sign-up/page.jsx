@@ -1,6 +1,5 @@
 'use client'
 import React from 'react';
-// import {FloppyDisk} from "@gravity-ui/icons";
 import {
     Button,
     Description,
@@ -16,12 +15,28 @@ import {
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { signUp } from '@/lib/auth-clients';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
+    const router = useRouter()
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.target);
+        const user = Object.fromEntries(formData.entries())
+        const { data, error } = await signUp.email({
+            ...user
+        })
+        if (data) {
+            console.log(data)
+            toast.success('User created, Login to continue')
+            router.push('/')
+        }
+        if (error) {
+            console.log(error)
+        }
     };
     return (
         <div className="flex items-center justify-center">
@@ -38,9 +53,6 @@ const SignUpPage = () => {
                     className="w-full max-w-md mx-auto p-6 sm:p-8 bg-base-100 rounded-2xl shadow-lg border border-base-300 space-y-5"
                     onSubmit={onSubmit}
                 >
-
-
-
 
                     <TextField isRequired name="name">
                         <Label>নাম</Label>

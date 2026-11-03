@@ -82,10 +82,10 @@ const SignInPage = () => {
                         <p className="text-center text-sm text-gray-500">
                             ইতোমধ্যে অ্যাকাউন্ট আছে?
                             <a
-                                href="/sign-in"
+                                href="/sign-up"
                                 className="text-red-700 font-semibold ml-1 hover:underline"
                             >
-                                সাইন   করুন
+                                সাইন আপ করুন
                             </a>
                         </p>
                     </div>
