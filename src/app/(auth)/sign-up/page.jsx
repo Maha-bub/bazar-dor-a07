@@ -35,7 +35,7 @@ const SignUpPage = () => {
             router.push('/sign-in')
         }
         if (error) {
-            console.log(error)
+            console.log("something wrong",error.message)
         }
     };
     const handleGitHubSignIn = async () => {

@@ -30,7 +30,7 @@ const SignInPage = () => {
         const { data } = await signIn.email({
             email: user.email,
             password: user.password,
-            callbackURL:('/')
+            callbackURL: ('/')
         })
         if (data) {
             console.log(data)
@@ -41,6 +41,16 @@ const SignInPage = () => {
             toast.warning('Email or password is invalid!')
         }
     };
+    const handleGitHubSignIn = async () => {
+        const resData = await signIn.social({
+            provider: 'github'
+        })
+    }
+    const handleGoogleSignIn = async () => {
+        const resData = await signIn.social({
+            provider: 'google'
+        })
+    }
     return (
 
         <div className="flex items-center justify-center">
@@ -86,11 +96,15 @@ const SignInPage = () => {
                         <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
                     <div className="flex max-w-full gap-3">
-                        <Button className="w-md" variant="tertiary">
+                        <Button 
+                        onClick={handleGitHubSignIn}
+                         className="w-md" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>
-                        <Button className="w-md" variant="tertiary">
+                        <Button
+                        onClick={handleGitHubSignIn}
+                        className="w-md" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>
