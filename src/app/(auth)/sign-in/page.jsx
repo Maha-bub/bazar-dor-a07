@@ -16,12 +16,30 @@ import {
 import { Icon } from '@iconify/react';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import Link from 'next/link';
+import { signIn } from '@/lib/auth-clients';
+import toast from 'react-hot-toast';
+import { error } from 'better-auth/api';
+import { redirect } from 'next/navigation';
 
 const SignInPage = () => {
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
+        const user = Object.fromEntries(formData.entries())
+        const { data } = await signIn.email({
+            email: user.email,
+            password: user.password,
+            callbackURL:('/')
+        })
+        if (data) {
+            console.log(data)
+            toast.success('User Logged In!')
+        }
+        if (error) {
+            console.log(error)
+            toast.warning('Email or password is invalid!')
+        }
     };
     return (
 

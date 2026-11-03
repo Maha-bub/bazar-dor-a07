@@ -15,7 +15,7 @@ import {
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import { signUp } from '@/lib/auth-clients';
+import { signIn, signUp } from '@/lib/auth-clients';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
@@ -30,14 +30,24 @@ const SignUpPage = () => {
             ...user
         })
         if (data) {
-            console.log(data)
+            // console.log(data)
             toast.success('User created, Login to continue')
-            router.push('/')
+            router.push('/sign-in')
         }
         if (error) {
             console.log(error)
         }
     };
+    const handleGitHubSignIn = async () => {
+        const resData = await signIn.social({
+            provider: 'github'
+        })
+    }
+    const handleGoogleSignIn = async () => {
+        const resData = await signIn.social({
+            provider: 'google'
+        })
+    }
     return (
         <div className="flex items-center justify-center">
             <div>
@@ -103,11 +113,15 @@ const SignUpPage = () => {
                         <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
                     <div className="flex max-w-full gap-3">
-                        <Button className="w-md" variant="tertiary">
+                        <Button
+                            onClick={handleGoogleSignIn}
+                            className="w-md" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>
-                        <Button className="w-md" variant="tertiary">
+                        <Button
+                        onClick={handleGitHubSignIn}
+                        className="w-md" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>
