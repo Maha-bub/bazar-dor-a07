@@ -1,10 +1,12 @@
+import UpdateProfilePage from '@/app/components/UpdateProfile';
 import { Button, Description } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 
 const ProfilePage = () => {
+
     return (
-        <div className="max-w-5xl mx-auto mt-6 px-4 sm:px-6 lg:px-0">
+        <div className="max-w-5xl mx-auto mt-6 px-4 sm:px-6 space-y-5 lg:px-0">
             <div className="mb-6">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
                     আমার প্রোফাইল
@@ -14,7 +16,7 @@ const ProfilePage = () => {
                 </Description>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6">
+            <div className="w-full mx-auto p-6 sm:p-8 bg-base-100 rounded-2xl shadow-lg border border-base-300 space-y-5">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-5">
                     <div className="flex items-center gap-4 min-w-0">
                         <Image
@@ -42,7 +44,12 @@ const ProfilePage = () => {
                         Log Out
                     </Button>
                 </div>
+
             </div>
+
+
+            <UpdateProfilePage></UpdateProfilePage>
+
         </div>
     );
 };
