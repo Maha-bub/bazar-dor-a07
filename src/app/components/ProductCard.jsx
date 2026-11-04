@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card } from '@heroui/react';
+import Link from 'next/link';
 
 const ProductCard = ({ products = [] }) => {
 
@@ -11,59 +12,61 @@ const ProductCard = ({ products = [] }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
             {products.map((product) => (
-                <Card
-                    key={product.id}
-                    className="bg-white border border-gray-200 shadow-none rounded-2xl p-5 hover:shadow-md transition-shadow"
-                >
+                <Link key={product.id} href={'/'}>
+                    <Card
 
-                    <div className="flex items-center gap-3 mb-4">
+                        className="bg-white border border-gray-200 shadow-none rounded-2xl p-5 hover:shadow-md transition-shadow"
+                    >
 
-                        <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-3xl">
-                            {product.image}
-                        </div>
+                        <div className="flex items-center gap-3 mb-4">
 
-                        <div>
-                            <h3 className="text-lg font-bold text-gray-800">
-                                {product.nameBn}
-                            </h3>
+                            <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-3xl">
+                                {product.image}
+                            </div>
 
-                            <p className="text-sm text-gray-500">
-                                প্রতি {product.unit === 'kg'
-                                    ? 'কেজি'
-                                    : product.unit}
-                            </p>
-                        </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-800">
+                                    {product.nameBn}
+                                </h3>
 
-                    </div>
+                                <p className="text-sm text-gray-500">
+                                    প্রতি {product.unit === 'kg'
+                                        ? 'কেজি'
+                                        : product.unit}
+                                </p>
+                            </div>
 
-
-                    <div className="flex items-end justify-between gap-2">
-
-                        <div>
-                            <p className="text-sm text-gray-500 mb-1">
-                                আজকের দাম
-                            </p>
-
-                            <h2 className="text-xl font-bold text-gray-800">
-                                {formatNumber(product.today)} টাকা
-                            </h2>
                         </div>
 
 
-                        <span
-                            className={`text-sm font-semibold px-3 py-1 rounded-full 
+                        <div className="flex items-end justify-between gap-2">
+
+                            <div>
+                                <p className="text-sm text-gray-500 mb-1">
+                                    আজকের দাম
+                                </p>
+
+                                <h2 className="text-xl font-bold text-gray-800">
+                                    {formatNumber(product.today)} টাকা
+                                </h2>
+                            </div>
+
+
+                            <span
+                                className={`text-sm font-semibold px-3 py-1 rounded-full 
                                 ${product.change.dir === 'up'
-                                    ? 'bg-red-50 text-red-500'
-                                    : 'bg-green-50 text-green-600'
-                                }`}
-                        >
-                            {product.change.dir === 'up' ? '▲' : '▼'}{' '}
-                            {formatNumber(product.change.pct)}%
-                        </span>
+                                        ? 'bg-red-50 text-red-500'
+                                        : 'bg-green-50 text-green-600'
+                                    }`}
+                            >
+                                {product.change.dir === 'up' ? '▲' : '▲'}{' '}
+                                {formatNumber(product.change.pct)}%
+                            </span>
 
-                    </div>
+                        </div>
 
-                </Card>
+                    </Card>
+                </Link>
             ))}
 
         </div>

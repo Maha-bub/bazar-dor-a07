@@ -8,7 +8,7 @@ const HeroBannerPage = () => {
     return (
 
 
-        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10 lg:gap-16 rounded-2xl bg-green-50 p-3 sm:p-5 lg:p-5 mt-10 ">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10 lg:gap-16 rounded-2xl bg-green-50 p-3 sm:p-5 lg:p-5 my-10 ">
 
 
             <div className="w-full flex-1 space-y-5 text-center md:text-left">

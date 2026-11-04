@@ -6,7 +6,7 @@ import AllProducts from './AllProducts';
 import { Skeleton } from "@heroui/react";
 
 const ProductStatus = () => {
-    // const [productsStatus, setProductsStatus] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
     const [topFiveProducts, setTopFiveProducts] = useState([]);
     const [downFiveProducts, setDownFiveProducts] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -20,6 +20,7 @@ const ProductStatus = () => {
                 const topFivePriceDown = data.filter((item) => item.change.dir === 'down').sort((a, b) => a.change.pct - b.change.pct).slice(0, 6)
                 setTopFiveProducts(topFivePriceUp)
                 setDownFiveProducts(topFivePriceDown)
+                setAllProducts(data)
             } catch (error) {
                 console.log(error)
             } finally {
@@ -42,7 +43,7 @@ const ProductStatus = () => {
                     <>
                         <PriceIncreaseProducts topFiveProducts={topFiveProducts}></PriceIncreaseProducts>
                         <PriceDecreaseProducts downFiveProducts={downFiveProducts}></PriceDecreaseProducts>
-                        <AllProducts></AllProducts>
+                        <AllProducts allProducts={allProducts}></AllProducts>
                     </>
             }
         </div>
