@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div >
-            <div className='container relative mx-auto flex max-w-7xl items-center justify-start py-5'>
+            <div className='relative mx-auto flex max-w-7xl items-center justify-start py-5'>
                 <div className='flex align-items-center items-center gap-1 w--10/12 '>
                     <Image
                         src={'/logo-icon.jpg'}

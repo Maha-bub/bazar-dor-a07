@@ -1,9 +1,10 @@
 import React from 'react';
+import HeroBannerPage from './components/HeroBanner';
 
 const HomePage = () => {
   return (
     <div>
-      This is home page
+    <HeroBannerPage></HeroBannerPage>
     </div>
   );
 };

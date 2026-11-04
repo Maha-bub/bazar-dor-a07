@@ -16,7 +16,7 @@ const MarqueePage = async () => {
                             <Link href="/" className='flex gap-2'>
                                 <h3>
                                     <span>{item.image}</span>
-                                    {item.nameBn}
+                                   <span className='font-semibold'> {item.nameBn}</span>
                                 </h3>
                                 <h2>
                                     ▲▼  <span>{item.today}</span>

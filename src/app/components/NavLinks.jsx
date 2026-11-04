@@ -1,23 +1,50 @@
+
+"use client"
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState,useEffect } from 'react';
 
-const NavLinks = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories')
-    const resNavData = await res.json();
+const NavLinks = () => {
+    const pathname = usePathname();
+    const [categories, setCategories] = useState([]);
 
-    // console.log(resNavData, 'category data');
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const res = await fetch("https://openapi.programming-hero.com/api/bazardor/categories");
 
+                if (!res.ok) {
+                    throw new Error("Failed to fetch categories");
+                }
+
+                const data = await res.json();
+                setCategories(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
     return (
         <div className='flex gap-4 max-w-7xl m-auto justify-start'>
 
             {
-                resNavData.map((navLinks) => (
-                    <div key={navLinks.id}>
-                        <Link className="group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium text-base-content/80 transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold" href={`/category/${navLinks.slug}`}>
-                            <span className="text-base transition-transform duration-200 group-hover:scale-110" >{navLinks.icon}</span>
-                            {navLinks.nameBn}
-                        </Link>
-                    </div>
-                ))
+                categories.map((navLinks) => {
+                    const isActive = pathname === `/categories/${navLinks.slug}`;
+
+                    return (
+                        <div key={navLinks.id}>
+                            <Link
+                                href={`/categories/${navLinks.slug}`}
+                                className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold ${isActive ? 'text-black' : 'text-base-content/80'}`}
+                            >
+                                <span className="text-base transition-transform duration-200 group-hover:scale-110">{navLinks.icon}</span>
+                                {navLinks.nameBn}
+                            </Link>
+                        </div>
+                    );
+                })
             }
         </div>
     );
