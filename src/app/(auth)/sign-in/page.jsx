@@ -16,12 +16,15 @@ import {
 import { Icon } from '@iconify/react';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import Link from 'next/link';
-import { signIn } from '@/lib/auth-clients';
+import { authClient, signIn } from '@/lib/auth-clients';
 import toast from 'react-hot-toast';
 import { error } from 'better-auth/api';
 import { redirect } from 'next/navigation';
 
 const SignInPage = () => {
+      const { data: session } = authClient.useSession;
+    const user = session;
+    console.log(user,'authenticated user')
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -97,7 +100,7 @@ const SignInPage = () => {
                     </div>
                     <div className="flex max-w-full gap-3">
                         <Button 
-                        onClick={handleGitHubSignIn}
+                        onClick={handleGoogleSignIn}
                          className="w-md" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
