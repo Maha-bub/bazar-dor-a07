@@ -7,7 +7,7 @@ import { Chip } from '@heroui/react';
 const MarqueePage = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products')
     const resData = await res.json()
-    console.log(resData, 'all products')
+    // console.log(resData, 'all products')
     return (
         <div className='w-full m-auto shadow py-1'>
             <MarqueeText direction="right" duration={20}>
@@ -23,10 +23,9 @@ const MarqueePage = async () => {
                                         <span>{item.image}</span>
                                         <span className='from-neutral-800'> {item.nameBn}</span>
                                     </h3>
-                                    {
-                                        item.today
-                                    } টাকা/কেজি
-                                    <Chip
+                                    <p>
+                                        {item.today} টাকা/কেজি
+                                    </p>                                    <Chip
 
                                         className={`${isUp ? 'bg-[#ffe4e6] text-warning' : isDown ? 'bg-[#d1fae5] text-success' : 'bg-slate-200 text-slate-700'} m-1`}>
                                         {
