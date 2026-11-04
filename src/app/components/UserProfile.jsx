@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 // import { ArrowRightFromSquare } from "@gravity-ui/icons";
 import { Avatar, Dropdown, Label } from "@heroui/react";
+import toast from 'react-hot-toast';
 
 
 const UserProfile = () => {
@@ -13,6 +14,7 @@ const UserProfile = () => {
 
     const handleLogout = async () => {
         await authClient.signOut();
+        toast.error('User Logged Out, continue to Login!')
     };
     console.log(user)
 
@@ -67,7 +69,7 @@ const UserProfile = () => {
                                 <Dropdown.Menu>
                                     <Dropdown.Item id="profile" textValue="Profile">
                                         <Link href={'/profile'}>
-                                           Profile
+                                            Profile
                                         </Link>
                                     </Dropdown.Item>
 

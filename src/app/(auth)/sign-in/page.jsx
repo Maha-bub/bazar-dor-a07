@@ -3,14 +3,10 @@ import React from 'react';
 // import {FloppyDisk} from "@gravity-ui/icons";
 import {
     Button,
-    Description,
     FieldError,
-    FieldGroup,
-    Fieldset,
     Form,
     Input,
     Label,
-    TextArea,
     TextField,
 } from "@heroui/react";
 import { Icon } from '@iconify/react';
@@ -19,12 +15,11 @@ import Link from 'next/link';
 import { authClient, signIn } from '@/lib/auth-clients';
 import toast from 'react-hot-toast';
 import { error } from 'better-auth/api';
-import { redirect } from 'next/navigation';
 
 const SignInPage = () => {
-      const { data: session } = authClient.useSession;
+    const { data: session } = authClient.useSession;
     const user = session;
-    console.log(user,'authenticated user')
+    console.log(user, 'authenticated user')
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -41,18 +36,20 @@ const SignInPage = () => {
         }
         if (error) {
             console.log(error)
-            toast.warning('Email or password is invalid!')
+            toast.error('Email or password is invalid!')
         }
     };
     const handleGitHubSignIn = async () => {
         const resData = await signIn.social({
             provider: 'github'
         })
+        toast.success('User LoggedIn from github')
     }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
+        toast.success('User LoggedIn form google')
     }
     return (
 
@@ -99,15 +96,15 @@ const SignInPage = () => {
                         <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
                     <div className="flex max-w-full gap-3">
-                        <Button 
-                        onClick={handleGoogleSignIn}
-                         className="w-md" variant="tertiary">
+                        <Button
+                            onClick={handleGoogleSignIn}
+                            className="w-md" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>
                         <Button
-                        onClick={handleGitHubSignIn}
-                        className="w-md" variant="tertiary">
+                            onClick={handleGitHubSignIn}
+                            className="w-md" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>

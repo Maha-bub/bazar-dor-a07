@@ -42,11 +42,13 @@ const SignUpPage = () => {
         const resData = await signIn.social({
             provider: 'github'
         })
+        toast.success('GitHub SignUp successfully')
     }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
+         toast.success('Google SignUp successfully')
     }
     return (
         <div className="flex items-center justify-center">

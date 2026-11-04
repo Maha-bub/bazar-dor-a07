@@ -1,6 +1,6 @@
 'use client'
 import UpdateProfilePage from '@/app/components/UpdateProfile';
-import { authClient, useSession } from '@/lib/auth-clients';
+import { authClient } from '@/lib/auth-clients';
 import { Button, Description } from '@heroui/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -16,6 +16,7 @@ const ProfilePage = () => {
             fetchOptions: {
                 onSuccess: () => {
                     router.push("/sign-in");
+                    toast.success('User Logged Out, continue to Login!')
                 },
             },
         });
