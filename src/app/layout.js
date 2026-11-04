@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
+import MarqueePage from "./components/Marquee";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +27,14 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="max-w-7xl m-auto flex flex-col">
+      <body className="min-h-dvh flex flex-col bg-base-100 text-base-content antialiased">
         <Toaster
           position="top-right"
           reverseOrder={false}
         />
         <Navbar />
-        <main>{children}</main>
+        <MarqueePage></MarqueePage>
+        <main className="w-full max-w-7xl mx-auto flex-1 px-4 sm:px-6 lg:px-8">{children}</main>
       </body>
     </html>
   );
