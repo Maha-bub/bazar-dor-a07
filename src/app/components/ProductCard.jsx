@@ -59,7 +59,11 @@ const ProductCard = ({ products = [] }) => {
                                         : 'bg-green-50 text-green-600'
                                     }`}
                             >
-                                {product.change.dir === 'up' ? '▲' : '▲'}{' '}
+                                {product.change.dir === 'up'
+                                    ? '▲ '
+                                    : product.change.dir === 'down'
+                                        ? '▼ '
+                                        : '-'}
                                 {formatNumber(product.change.pct)}%
                             </span>
 

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import UserProfile from './UserProfile';
 import NavLinks from './NavLinks';
+import Link from 'next/link';
 
 
 const Navbar = () => {
@@ -12,19 +13,21 @@ const Navbar = () => {
     return (
         <div >
             <div className='relative mx-auto flex max-w-7xl items-center justify-start py-5'>
-                <div className='flex align-items-center items-center gap-1 w--10/12 '>
-                    <Image
-                        src={'/logo-icon.jpg'}
-                        className='bg-[#05893E] rounded-2xl p-4'
-                        alt="Logo Image"
-                        width={50}
-                        height={40}>
-                    </Image>
-                    <div>
-                        <h2 className='text-3xl font-bold'>বাজার দর</h2>
-                        <p>{date}</p>
+                <Link href={'/'}>
+                    <div className='flex align-items-center items-center gap-1 w--10/12 '>
+                        <Image
+                            src={'/logo-icon.jpg'}
+                            className='bg-[#05893E] rounded-2xl p-4'
+                            alt="Logo Image"
+                            width={50}
+                            height={40}>
+                        </Image>
+                        <div>
+                            <h2 className='text-3xl font-bold'>বাজার দর</h2>
+                            <p>{date}</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <UserProfile></UserProfile>
 
             </div>
