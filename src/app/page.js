@@ -3,9 +3,9 @@ import HeroBannerPage from './components/HeroBanner';
 
 const HomePage = () => {
   return (
-    <div>
+    <>
     <HeroBannerPage></HeroBannerPage>
-    </div>
+    </>
   );
 };
 
