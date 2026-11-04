@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { MdOutlineShoppingCart } from 'react-icons/md';
 import UserProfile from './UserProfile';
 
 

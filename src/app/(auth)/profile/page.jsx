@@ -1,9 +1,26 @@
+'use client'
 import UpdateProfilePage from '@/app/components/UpdateProfile';
+import { authClient, useSession } from '@/lib/auth-clients';
 import { Button, Description } from '@heroui/react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const ProfilePage = () => {
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
+    const router = useRouter()
+    const handleSignOut = async () => {
+
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/sign-in");
+                },
+            },
+        });
+    }
+
 
     return (
         <div className="max-w-5xl mx-auto mt-6 px-4 sm:px-6 space-y-5 lg:px-0">
@@ -21,7 +38,7 @@ const ProfilePage = () => {
                     <div className="flex items-center gap-4 min-w-0">
                         <Image
                             alt="Avatar"
-                            src="/avatar.png"
+                            src={user?.image}
                             width={64}
                             height={64}
                             className="rounded-full object-cover shrink-0"
@@ -29,10 +46,10 @@ const ProfilePage = () => {
 
                         <div className="min-w-0">
                             <h2 className="text-lg sm:text-xl font-semibold text-gray-900 truncate">
-                                Name
+                                {user?.name}
                             </h2>
                             <p className="text-sm text-gray-500 truncate">
-                                email@example.com
+                                {user?.email}
                             </p>
                         </div>
                     </div>
@@ -40,6 +57,7 @@ const ProfilePage = () => {
                     <Button
                         variant="danger"
                         className="w-full sm:w-auto px-6 font-medium"
+                        onClick={handleSignOut}
                     >
                         Log Out
                     </Button>
