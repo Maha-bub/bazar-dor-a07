@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="max-w-7xl m-auto flex flex-col">
         <Toaster
           position="top-right"
           reverseOrder={false}

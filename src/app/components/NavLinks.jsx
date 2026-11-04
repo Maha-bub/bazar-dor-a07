@@ -12,7 +12,7 @@ const NavLinks = async () => {
             {
                 resNavData.map((navLinks) => (
                     <div key={navLinks.id}>
-                        <Link className="group inline-flex items-center gap-2 rounded-lg px-1 py-2 text-sm font-medium text-base-content/80 transition-all duration-200 hover:bg-primary/10 hover:text-primary" href={`/category/${navLinks.slug}`}>
+                        <Link className="group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium text-base-content/80 transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold" href={`/category/${navLinks.slug}`}>
                             <span className="text-base transition-transform duration-200 group-hover:scale-110" >{navLinks.icon}</span>
                             {navLinks.nameBn}
                         </Link>
