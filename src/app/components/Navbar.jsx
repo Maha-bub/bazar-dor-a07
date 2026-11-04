@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className='container relative mx-auto flex max-w-7xl items-center justify-start py-5'>
                 <div className='flex align-items-center items-center gap-1 w--10/12 '>
                     <Image
-                        src={'/logo-icon.png'}
+                        src={'/logo-icon.jpg'}
                         className='bg-[#05893E] rounded-2xl p-4'
                         alt="Logo Image"
                         width={50}
