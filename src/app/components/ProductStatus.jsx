@@ -57,7 +57,7 @@ const ProductStatus = () => {
                     <>
                         <PriceIncreaseProducts topFiveProducts={topFiveProducts}></PriceIncreaseProducts>
                         <PriceDecreaseProducts downFiveProducts={downFiveProducts}></PriceDecreaseProducts>
-                        <AllProducts allProducts={allProducts}></AllProducts>
+                        <AllProducts allProducts={allProducts} ></AllProducts>
                     </>
             }
         </div>

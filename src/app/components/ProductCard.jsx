@@ -12,7 +12,7 @@ const ProductCard = ({ products = [] }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
             {products.map((product) => (
-                <Link key={product.id} href={'/'}>
+                <Link key={product.id} href={`/products/${product.slug}`}>
                     <Card
 
                         className="bg-white border border-gray-200 shadow-none rounded-2xl p-5 hover:shadow-md transition-shadow"

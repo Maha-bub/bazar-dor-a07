@@ -29,7 +29,7 @@ const HeroBannerPage = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 pt-2">
 
-                    <Link href="/sign-up" className="w-full sm:w-auto">
+                    <Link href={'/allProducts'} className="w-full sm:w-auto">
                         <button className="btn btn-success text-white w-full px-7">
                             সব পণ্য দেখুন
                         </button>
