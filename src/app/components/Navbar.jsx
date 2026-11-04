@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import UserProfile from './UserProfile';
+import NavLinks from './NavLinks';
 
 
 const Navbar = () => {
@@ -28,8 +29,10 @@ const Navbar = () => {
 
             </div>
 
+            <NavLinks></NavLinks>
 
-         
+
+
 
         </div>
     );
