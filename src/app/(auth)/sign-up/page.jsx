@@ -35,20 +35,20 @@ const SignUpPage = () => {
             router.push('/sign-in')
         }
         if (error) {
-            console.log("something wrong",error.message)
+            console.log("something wrong", error.message)
         }
     };
     const handleGitHubSignIn = async () => {
         const resData = await signIn.social({
             provider: 'github'
         })
-        toast.success('GitHub SignUp successfully')
+        // toast.success('GitHub SignUp successfully')
     }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
-         toast.success('Google SignUp successfully')
+        //  toast.success('Google SignUp successfully')
     }
     return (
         <div className="flex items-center justify-center">
@@ -122,8 +122,8 @@ const SignUpPage = () => {
                             Sign in with Google
                         </Button>
                         <Button
-                        onClick={handleGitHubSignIn}
-                        className="w-md" variant="tertiary">
+                            onClick={handleGitHubSignIn}
+                            className="w-md" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>

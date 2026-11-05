@@ -43,13 +43,13 @@ const SignInPage = () => {
         const resData = await signIn.social({
             provider: 'github'
         })
-        toast.success('User LoggedIn from github')
+        // toast.success('User LoggedIn from github')
     }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
-        toast.success('User LoggedIn form google')
+        // toast.success('User LoggedIn form google')
     }
     return (
 

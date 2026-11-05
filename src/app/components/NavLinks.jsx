@@ -31,12 +31,12 @@ const NavLinks = () => {
 
             {
                 categories.map((navLinks) => {
-                    const isActive = pathname === `/categories/${navLinks.slug}`;
+                    const isActive = pathname === `/category/${navLinks.slug}`;
 
                     return (
                         <div key={navLinks.id}>
                             <Link
-                                href={`/categories/${navLinks.slug}`}
+                                href={`/category/${navLinks.slug}`}
                                 className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold ${isActive ? 'text-black' : 'text-base-content/80'}`}
                             >
                                 <span className="text-base transition-transform duration-200 group-hover:scale-110">{navLinks.icon}</span>
