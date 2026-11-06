@@ -16,7 +16,7 @@ const UserProfile = () => {
         await authClient.signOut();
         toast.error('User Logged Out, continue to Login!')
     };
-    console.log(user, 'session data')NEXT_PUBLIC_APP_URL=http://localhost:3000
+    console.log(user, 'session data')
 
     return (
         <div className='absolute right-0 flex items-center gap-2'>
