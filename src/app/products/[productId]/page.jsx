@@ -1,5 +1,5 @@
-
 import { Breadcrumbs, Chip, Table } from "@heroui/react";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const ProductIdPage = async ({ params }) => {
@@ -9,11 +9,29 @@ const ProductIdPage = async ({ params }) => {
         `https://openapi.programming-hero.com/api/bazardor/products/${productId}`);
 
     if (!res.ok) {
+        if (res.status === 404) {
+            notFound();
+        }
+
         throw new Error("Failed to fetch product data");
     }
 
     const response = await res.json();
     const product = response?.data ?? response;
+
+    // API থেকে 404 response এলে
+    if (res.status === 404) {
+        notFound();
+    }
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch product data");
+    }
+
+
+    if (!product || !product.nameBn) {
+        NotFound();
+    }
 
     const markets = product?.markets || [];
 

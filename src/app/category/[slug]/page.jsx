@@ -1,6 +1,7 @@
 import CategoryProducts from '@/app/components/CategoryProducts';
 import ProductCard from '@/app/components/ProductCard';
 import { Description } from '@heroui/react';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 const ProductCategory = async ({ params }) => {
@@ -8,6 +9,10 @@ const ProductCategory = async ({ params }) => {
     console.log(slug)
     const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${slug}`)
     const resData = await res.json()
+
+    if(!resData){
+        notFound()
+    }
 
     console.log(resData)
     return (
