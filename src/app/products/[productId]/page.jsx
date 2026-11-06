@@ -17,7 +17,7 @@ const ProductIdPage = async ({ params }) => {
 
     const markets = product?.markets || [];
 
-       const allMinPrices = markets.map((item) => item.min);
+    const allMinPrices = markets.map((item) => item.min);
     const allMaxPrices = markets.map((item) => item.max);
 
     const lowestPrice = Math.min(...allMinPrices);
@@ -112,7 +112,7 @@ const ProductIdPage = async ({ params }) => {
 
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
 
-                       
+
                         <div className="rounded-xl border border-[#e0e9e1] p-4">
                             <p className="text-xs text-gray-500">
                                 সর্বনিম্ন দাম
@@ -127,7 +127,7 @@ const ProductIdPage = async ({ params }) => {
                             </p>
                         </div>
 
-                       
+
                         <div className="rounded-xl border border-[#e0e9e1] p-4">
                             <p className="text-xs text-gray-500">
                                 সর্বাধিক দাম
@@ -142,7 +142,7 @@ const ProductIdPage = async ({ params }) => {
                             </p>
                         </div>
 
-                      
+
                         <div className="rounded-xl border border-[#e0e9e1] p-4">
                             <p className="text-xs text-gray-500">
                                 গড় দাম
@@ -165,27 +165,27 @@ const ProductIdPage = async ({ params }) => {
                             বাজারভিত্তিক আজকের দাম
                         </h2>
 
-                        <div className="w-full overflow-x-auto rounded-xl border border-[#e0e9e1]">
-                            <Table aria-label="Market wise product price">
-                                <Table.Content className="min-w-[650px]">
+                        <div className="w-full max-w-full overflow-x-auto rounded-xl border border-[#e0e9e1]">
+                            <Table aria-label="Market wise product price" className="w-full">
+                                <Table.Content className="min-w-160 sm:min-w-full">
                                     <Table.Header>
-                                        <Table.Column id="market">
+                                        <Table.Column id="market" className='px-3 sm:px-4'>
                                             বাজার
                                         </Table.Column>
 
-                                        <Table.Column id="division">
+                                        <Table.Column className='px-3 sm:px-4' id="division">
                                             বিভাগ
                                         </Table.Column>
 
-                                        <Table.Column id="min">
+                                        <Table.Column className='px-3 sm:px-4' id="min">
                                             সর্বনিম্ন
                                         </Table.Column>
 
-                                        <Table.Column id="max">
+                                        <Table.Column className='px-3 sm:px-4' id="max">
                                             সর্বাধিক
                                         </Table.Column>
 
-                                        <Table.Column id="average">
+                                        <Table.Column className='px-3 sm:px-4' id="average">
                                             গড়
                                         </Table.Column>
                                     </Table.Header>
@@ -199,25 +199,25 @@ const ProductIdPage = async ({ params }) => {
                                                 <Table.Row
                                                     key={`${market.market}-${index}`}
                                                 >
-                                                    <Table.Cell>
+                                                    <Table.Cell className="px-3 sm:px-4 py-3">
                                                         <span className="font-medium text-[#26332a]">
                                                             {market.market}
                                                         </span>
                                                     </Table.Cell>
 
-                                                    <Table.Cell>
+                                                    <Table.Cell className="px-3 sm:px-4 py-3">
                                                         {market.division}
                                                     </Table.Cell>
 
-                                                    <Table.Cell>
+                                                    <Table.Cell className="px-3 sm:px-4 py-3">
                                                         {formatPrice(market.min)} টাকা
                                                     </Table.Cell>
 
-                                                    <Table.Cell>
+                                                    <Table.Cell className="px-3 sm:px-4 py-3">
                                                         {formatPrice(market.max)} টাকা
                                                     </Table.Cell>
 
-                                                    <Table.Cell>
+                                                    <Table.Cell className="px-3 sm:px-4 py-3">
                                                         <span className="font-semibold text-[#26332a]">
                                                             {formatPrice(avg)} টাকা
                                                         </span>

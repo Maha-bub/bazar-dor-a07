@@ -33,11 +33,8 @@ const CategoryProducts = ({ resData }) => {
                 </select>
             </div>
 
-            <div>
-                <div className="my-10 flex items-center gap-4 border border-gray-200 rounded-2xl p-5">
-
-                    <ProductCard key={resData.id} products={sortedProducts}></ProductCard>
-                </div>
+            <div className='my-10'>
+                <ProductCard key={resData.id} products={sortedProducts}></ProductCard>
             </div>
 
         </div>

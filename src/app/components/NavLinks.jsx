@@ -2,7 +2,7 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const NavLinks = () => {
     const pathname = usePathname();
@@ -27,25 +27,26 @@ const NavLinks = () => {
         fetchCategories();
     }, []);
     return (
-        <div className='flex gap-4 max-w-7xl m-auto justify-start'>
+        <div className='w-full max-w-7xl mx-auto px-3 sm:px-4'>
+            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto whitespace-nowrap scrollbar-hide lg:flex-wrap lg:overflow-visible">
+                {
+                    categories.map((navLinks) => {
+                        const isActive = pathname === `/category/${navLinks.slug}`;
 
-            {
-                categories.map((navLinks) => {
-                    const isActive = pathname === `/category/${navLinks.slug}`;
-
-                    return (
-                        <div key={navLinks.id}>
-                            <Link
-                                href={`/category/${navLinks.slug}`}
-                                className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold ${isActive ? 'text-black' : 'text-base-content/80'}`}
-                            >
-                                <span className="text-base transition-transform duration-200 group-hover:scale-110">{navLinks.icon}</span>
-                                {navLinks.nameBn}
-                            </Link>
-                        </div>
-                    );
-                })
-            }
+                        return (
+                            <div key={navLinks.id}>
+                                <Link
+                                    href={`/category/${navLinks.slug}`}
+                                    className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold ${isActive ? 'text-black' : 'text-base-content/80'}`}
+                                >
+                                    <span className="text-base transition-transform duration-200 group-hover:scale-110">{navLinks.icon}</span>
+                                    {navLinks.nameBn}
+                                </Link>
+                            </div>
+                        );
+                    })
+                }
+            </div>
         </div>
     );
 };

@@ -9,7 +9,7 @@ const ProductCard = ({ products = [] }) => {
     const formatNumber = (number) => new Intl.NumberFormat('bn-BD').format(number);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-between gap-4">
 
             {products.map((product) => (
                 <Link key={product.id} href={`/products/${product.id}`}>
