@@ -27,10 +27,7 @@ const ProductCategory = async ({ params }) => {
                     </Description>
                 </div>
             </div>
-            <div className="my-10 flex items-center gap-4 border border-gray-200 rounded-2xl p-5">
-                <CategoryProducts></CategoryProducts>
-            </div>
-            <ProductCard key={resData.id} products={resData}></ProductCard>
+            <CategoryProducts resData={resData}></CategoryProducts>
         </section>
     );
 };
