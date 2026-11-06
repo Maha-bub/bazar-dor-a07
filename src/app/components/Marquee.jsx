@@ -18,7 +18,7 @@ const MarqueePage = async () => {
                         return (
 
                             <div key={item.id ?? index}>
-                                <Link href={`/products/${item.slug}`} className='flex gap-2'>
+                                <Link href={`/products/${item.id}`} className='flex gap-2'>
                                     <h3>
                                         <span>{item.image}</span>
                                         <span className='from-neutral-800'> {item.nameBn}</span>
