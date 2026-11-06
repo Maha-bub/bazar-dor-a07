@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 const PriceIncreaseProducts = ({ topFiveProducts }) => {
-    console.log(topFiveProducts, 'Price Increase page')
+   
     return (
         <div className='my-10'>
 

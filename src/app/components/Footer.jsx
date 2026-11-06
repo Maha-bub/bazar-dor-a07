@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const FooterPage = () => {
     return (
-        <footer className="mt-6 sm:mt-8 border-t border-[#e0e9e1] bg-white">
+        <footer className="mt-6 w-full sm:mt-8 border-t border-[#e0e9e1]">
             <div className="max-w-7xl mx-auto  py-8 sm:py-10">
                 <Link
                     href="/"
@@ -18,7 +18,7 @@ const FooterPage = () => {
                         © {new Date().getFullYear()} বাজার দর। সর্বস্বত্ব সংরক্ষিত।
                     </p>
 
-                    <p className="text-xs sm:text-sm font-medium text-[#526454]">
+                    <p className="text-xs sm:text-sm font-medium text-[#526454] p-3">
                         সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়। <br /> সচেতন বাজার, সঠিক সিদ্ধান্ত।
                     </p>
                 </div>

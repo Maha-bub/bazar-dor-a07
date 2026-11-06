@@ -51,9 +51,9 @@ const SignUpPage = () => {
         //  toast.success('Google SignUp successfully')
     }
     return (
-        <div className="flex items-center justify-center">
-            <div>
-                <div className="text-center my-3 mt-3">
+        <div className="w-full min-h-[70vh] flex items-center justify-center px-4 py-8 sm:px-6">
+            <div className='w-full max-w-md'>
+                <div className="text-center mb-6">
                     <h2 className="text-xl sm:text-2xl font-bold text-[#05893E]">
                         অ্যাকাউন্ট তৈরি করুন
                     </h2>

@@ -16,7 +16,7 @@ const UserProfile = () => {
         await authClient.signOut();
         toast.error('User Logged Out, continue to Login!')
     };
-    // console.log(user)
+    console.log(user, 'session data')
 
     return (
         <div className='absolute right-0 flex items-center gap-2'>
@@ -39,13 +39,19 @@ const UserProfile = () => {
                                 <Dropdown.Trigger className="rounded-full">
                                     <div className="avatar">
                                         <div className="w-11 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100">
-                                            <Image
-                                                src={user?.image || "/default-avatar.png"}
-                                                width={100}
-                                                height={100}
-                                                alt={user?.name ?? "User avatar"}
-                                                className="object-cover"
-                                            />
+                                            {user?.image ? (
+                                                <Image
+                                                    src={user.image}
+                                                    width={100}
+                                                    height={100}
+                                                    alt={user?.name ?? "User avatar"}
+                                                    className="object-cover"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center bg-green-100 text-3xl">
+                                                    👤
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </Dropdown.Trigger>

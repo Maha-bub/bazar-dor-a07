@@ -9,7 +9,7 @@ const MarqueePage = async () => {
     const resData = await res.json()
     // console.log(resData, 'all products')
     return (
-        <div className='w-full m-auto shadow py-1'>
+        <div className='w-full m-auto shadow py-1 bg-white'>
             <MarqueeText direction="right" duration={20}>
                 {
                     resData.map((item, index) => {
