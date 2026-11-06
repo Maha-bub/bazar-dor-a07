@@ -37,18 +37,19 @@ const SignUpPage = () => {
         if (error) {
             console.log("something wrong", error.message)
         }
+        toast.success('SignUp successfully')
     };
     const handleGitHubSignIn = async () => {
         const resData = await signIn.social({
             provider: 'github'
         })
-        // toast.success('GitHub SignUp successfully')
+        toast.success('GitHub SignUp successfully')
     }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
-        //  toast.success('Google SignUp successfully')
+        toast.success('Google SignUp successfully')
     }
     return (
         <div className="w-full min-h-[70vh] flex items-center justify-center px-4 py-8 sm:px-6">

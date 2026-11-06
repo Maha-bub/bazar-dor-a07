@@ -38,17 +38,20 @@ const SignInPage = () => {
             console.log(error)
             toast.error('Email or password is invalid!')
         }
+          toast.success('SignUp successfully')
     };
     const handleGitHubSignIn = async () => {
         const resData = await signIn.social({
             provider: 'github'
         })
-            }
+        toast.success('Github SignUp successfully')
+    }
     const handleGoogleSignIn = async () => {
         const resData = await signIn.social({
             provider: 'google'
         })
-        
+        toast.success('Google SignUp successfully')
+
     }
     return (
 

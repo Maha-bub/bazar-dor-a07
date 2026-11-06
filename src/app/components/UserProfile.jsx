@@ -101,7 +101,7 @@ const UserProfile = () => {
                             <Link href={'/sign-in'}>
                                 <button className="btn btn-outline">সাইন ইন</button>
                             </Link>
-                            <Link href={'/sign-up'}>
+                            <Link href={'/sign-up'} className='hidden md:block'>
                                 <button className="btn btn-success text-white">সাইন আপ</button>
                             </Link>
                         </div>
