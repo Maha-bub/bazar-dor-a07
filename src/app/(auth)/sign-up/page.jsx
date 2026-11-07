@@ -118,7 +118,7 @@ const SignUpPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-md m-auto gap-3">
                         <Button
                             onClick={handleGoogleSignIn}
-                            className="w-full md:w-md flex items-center justify-center gap-2" variant="tertiary">
+                            className="w-full flex items-center justify-center gap-2" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>
