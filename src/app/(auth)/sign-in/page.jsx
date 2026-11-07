@@ -38,7 +38,7 @@ const SignInPage = () => {
             console.log(error)
             toast.error('Email or password is invalid!')
         }
-          toast.success('SignUp successfully')
+        toast.success('SignUp successfully')
     };
     const handleGitHubSignIn = async () => {
         const resData = await signIn.social({
@@ -97,7 +97,7 @@ const SignInPage = () => {
                         <span className="text-sm text-gray-500">অথবা</span>
                         <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
-                    <div className="flex max-w-full gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 max-w-full m-auto gap-3">
                         <Button
                             onClick={handleGoogleSignIn}
                             className="w-md" variant="tertiary">
