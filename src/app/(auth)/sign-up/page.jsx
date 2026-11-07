@@ -118,13 +118,13 @@ const SignUpPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 max-w-full m-auto gap-3">
                         <Button
                             onClick={handleGoogleSignIn}
-                            className="w-md" variant="tertiary">
+                            className="w-full md:w-md flex items-center justify-center gap-2" variant="tertiary">
                             <Icon icon="devicon:google" />
                             Sign in with Google
                         </Button>
                         <Button
                             onClick={handleGitHubSignIn}
-                            className="w-md" variant="tertiary">
+                            className="w-full md:w-md flex items-center justify-center gap-2" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>
