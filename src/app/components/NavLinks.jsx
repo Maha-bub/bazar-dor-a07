@@ -37,7 +37,10 @@ const NavLinks = () => {
                             <div key={navLinks.id}>
                                 <Link
                                     href={`/category/${navLinks.slug}`}
-                                    className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold ${isActive ? 'text-black' : 'text-base-content/80'}`}
+                                    className={`group inline-flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-black hover:font-semibold  ${isActive
+                                            ? 'bg-gray-100 font-semibold text-black shadow-xs'
+                                            : 'font-medium text-base-content/80 hover:bg-gray-100 hover:font-semibold hover:text-black'
+                                        }`}
                                 >
                                     <span className="text-base transition-transform duration-200 group-hover:scale-110">{navLinks.icon}</span>
                                     {navLinks.nameBn}
