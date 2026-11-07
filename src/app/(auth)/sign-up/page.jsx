@@ -115,7 +115,7 @@ const SignUpPage = () => {
                         <span className="text-sm text-gray-500">অথবা</span>
                         <div className="flex-1 h-px bg-gray-300"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 max-w-full m-auto gap-3">
+                    <div className="w-full flex items-center justify-center gap-2">
                         <Button
                             onClick={handleGoogleSignIn}
                             className="w-full md:w-md flex items-center justify-center gap-2" variant="tertiary">
@@ -124,7 +124,7 @@ const SignUpPage = () => {
                         </Button>
                         <Button
                             onClick={handleGitHubSignIn}
-                            className="w-full md:w-md flex items-center justify-center gap-2" variant="tertiary">
+                            className="w-full flex items-center justify-center gap-2" variant="tertiary">
                             <Icon icon="mdi:github" />
                             Sign in with GitHub
                         </Button>
